@@ -18,7 +18,6 @@
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.9" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
         <PackageReference Include="LiveChartsCore.SkiaSharpView.Avalonia" Version="2.0.0-rc2" />
-        <PackageReference Include="Mapsui.Avalonia" Version="4.1.4" />
         <PackageReference Include="NSubstitute" Version="5.1.0" />
         <PackageReference Include="Projektanker.Icons.Avalonia" Version="9.1.1" />
         <PackageReference Include="Projektanker.Icons.Avalonia.FontAwesome" Version="9.1.1" />
@@ -30,6 +29,7 @@
     </ItemGroup>
     
     <ItemGroup>
+      <ProjectReference Include="..\..\submodules\Mapsui\Mapsui.UI.Avalonia\Mapsui.UI.Avalonia.csproj" />
       <ProjectReference Include="..\GpxViewer2.ExceptionViewer\GpxViewer2.ExceptionViewer.csproj" />
     </ItemGroup>
     

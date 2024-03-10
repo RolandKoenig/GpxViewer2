@@ -12,8 +12,6 @@
              ViewFor="{x:Type local:MapViewModel}">
     <Panel>
         <mapsui:MapControl x:Name="CtrlMap"
-                           UseContinuousMouseWheelZoom="True"
-                           ContinuousMouseWheelZoomStepSize="0.2"
                            PointerPressed="OnCtrlMap_PointerPressed"
                            PointerReleased="OnCtrlMap_PointerReleased"
                            PointerMoved="OnCtrlMap_PointerMoved"

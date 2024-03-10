@@ -8,6 +8,7 @@ using GpxViewer2.Views.Maps;
 using Mapsui;
 using Mapsui.Animations;
 using Mapsui.Layers;
+using Mapsui.Manipulations;
 using Mapsui.Nts;
 using Mapsui.Tiling;
 using RolandK.AvaloniaExtensions.Mvvm.Controls;
@@ -59,8 +60,8 @@ public partial class MapView : MvvmUserControl, IMapsViewService
         this.CtrlMap.Map.Layers.Add(OpenStreetMap.CreateTileLayer());
         this.CtrlMap.Map.Layers.Add(_lineStringLayerForSelection);
         this.CtrlMap.Map.Layers.Add(_lineStringLayerForAll);
-        this.CtrlMap.UnSnapRotationDegrees = 30;
-        this.CtrlMap.ReSnapRotationDegrees = 5;
+        this.CtrlMap.Map.Navigator.RotationLock = true;
+        this.CtrlMap.Map.Navigator.MouseWheelAnimation.Easing = Easing.Linear;
         
         this.CtrlMap.Map.Navigator.ViewportChanged += this.OnCtrlMap_Navigator_OnViewportChanged;
 
@@ -289,7 +290,7 @@ public partial class MapView : MvvmUserControl, IMapsViewService
             var mousePosition = e.GetCurrentPoint(this.CtrlMap);
         
             var clickInfo = this.CtrlMap.GetMapInfo(
-                new MPoint(mousePosition.Position.X, mousePosition.Position.Y),
+                new ScreenPosition(mousePosition.Position.X, mousePosition.Position.Y),
                 3);
             if (clickInfo?.Feature is GeometryFeatureWithMetadata featureWithMetadata)
             {
@@ -318,7 +319,7 @@ public partial class MapView : MvvmUserControl, IMapsViewService
         var mousePosition = e.GetCurrentPoint(this.CtrlMap);
         
         var mouseLocationInfo = this.CtrlMap.GetMapInfo(
-            new MPoint(mousePosition.Position.X, mousePosition.Position.Y),
+            new ScreenPosition(mousePosition.Position.X, mousePosition.Position.Y),
             3);
 
         this.CtrlMap.Cursor = mouseLocationInfo?.Feature != null
