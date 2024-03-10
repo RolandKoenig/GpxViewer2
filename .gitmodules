@@ -1,0 +1,3 @@
+[submodule "submodules/Mapsui"]
+	path = submodules/Mapsui
+	url = https://github.com/RolandKoenig/Mapsui
