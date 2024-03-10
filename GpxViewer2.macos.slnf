@@ -4,7 +4,20 @@
     "projects": [
       "src\\GpxViewer2.ExceptionViewer\\GpxViewer2.ExceptionViewer.csproj",
       "src\\GpxViewer2.Tests\\GpxViewer2.Tests.csproj",
-      "src\\GpxViewer2\\GpxViewer2.csproj"
+      "src\\GpxViewer2\\GpxViewer2.csproj",
+      "submodules\\Mapsui\\Mapsui.ArcGIS\\Mapsui.ArcGIS.csproj",
+      "submodules\\Mapsui\\Mapsui.Extensions\\Mapsui.Extensions.csproj",
+      "submodules\\Mapsui\\Mapsui.Nts\\Mapsui.Nts.csproj",
+      "submodules\\Mapsui\\Mapsui.Rendering.Skia\\Mapsui.Rendering.Skia.csproj",
+      "submodules\\Mapsui\\Mapsui.Tiling\\Mapsui.Tiling.csproj",
+      "submodules\\Mapsui\\Mapsui.UI.Avalonia\\Mapsui.UI.Avalonia.csproj",
+      "submodules\\Mapsui\\Mapsui\\Mapsui.csproj",
+      "submodules\\Mapsui\\Samples\\Avalonia\\Mapsui.Samples.Avalonia.Desktop\\Mapsui.Samples.Avalonia.Desktop.csproj",
+      "submodules\\Mapsui\\Samples\\Avalonia\\Mapsui.Samples.Avalonia\\Mapsui.Samples.Avalonia.csproj",
+      "submodules\\Mapsui\\Samples\\Mapsui.Samples.Common\\Mapsui.Samples.Common.csproj",
+      "submodules\\Mapsui\\Samples\\Mapsui.Samples.CustomWidget\\Mapsui.Samples.CustomWidget.csproj",
+      "submodules\\Mapsui\\SourceGenerators\\Mapsui.Sample.SourceGenerator\\Mapsui.Sample.SourceGenerator.csproj",
+      "submodules\\Mapsui\\Tests\\Mapsui.Tests.Common\\Mapsui.Tests.Common.csproj"
     ]
   }
 }
