@@ -5,12 +5,7 @@ namespace GpxViewer2.Controls.PropertyGrid;
 
 public class DefaultPropertyContractResolver : IPropertyContractResolver
 {
-    private Dictionary<Type, Dictionary<string, List<Attribute>>> _dictTypes;
-
-    public DefaultPropertyContractResolver()
-    {
-        _dictTypes = new Dictionary<Type, Dictionary<string, List<Attribute>>>();
-    }
+    private readonly Dictionary<Type, Dictionary<string, List<Attribute>>> _dictTypes = new();
 
     public void AddDataAnnotation<T>(Type targetType, string propertyName, T attrib)
         where T : Attribute

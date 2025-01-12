@@ -17,7 +17,7 @@ public class DoubleExtensionTests
     [InlineData(0.1231, 0.121, false)]
     public void Equals3DigitPrecision_EqualityTests(double left, double right, bool expectedResult)
     {
-        var result = left.EqualsWithTolerance(right);
+        var result = left.EqualsWithTolerance(right, 0.001);
         result.Should().Be(expectedResult);
     }
 }

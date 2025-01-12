@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GpxViewer2.Util;
 
@@ -9,7 +7,7 @@ namespace GpxViewer2.Util;
 /// </summary>
 public class DummyDisposable : IDisposable
 {
-    private Action? _onDisposeAction;
+    private readonly Action? _onDisposeAction;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="DummyDisposable"/> class.

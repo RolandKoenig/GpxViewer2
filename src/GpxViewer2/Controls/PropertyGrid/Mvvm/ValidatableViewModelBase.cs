@@ -7,9 +7,9 @@ namespace GpxViewer2.Controls.PropertyGrid.Mvvm;
 
 internal class ValidatableViewModelBase : PropertyChangedBase, INotifyDataErrorInfo
 {
-    private static readonly string[] NO_ERRORS = Array.Empty<string>();
+    private static readonly string[] NO_ERRORS = [];
 
-    private Dictionary<string, List<string>> _errorsByPropertyName = new Dictionary<string, List<string>>();
+    private readonly Dictionary<string, List<string>> _errorsByPropertyName = new();
 
     /// <inheritdoc />
     public virtual IEnumerable GetErrors(string? propertyName)
@@ -44,7 +44,7 @@ internal class ValidatableViewModelBase : PropertyChangedBase, INotifyDataErrorI
         }
         else
         {
-            _errorsByPropertyName.Add(propertyName, new List<string> { error });
+            _errorsByPropertyName.Add(propertyName, [error]);
         }
 
         this.ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));

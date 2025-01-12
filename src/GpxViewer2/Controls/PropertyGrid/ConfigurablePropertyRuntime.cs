@@ -7,9 +7,9 @@ namespace GpxViewer2.Controls.PropertyGrid;
 
 internal class ConfigurablePropertyRuntime : ValidatableViewModelBase
 {
-    private PropertyDescriptor _descriptor;
-    private ConfigurablePropertyMetadata _metadata;
-    private object _hostObject;
+    private readonly PropertyDescriptor _descriptor;
+    private readonly ConfigurablePropertyMetadata _metadata;
+    private readonly object _hostObject;
 
     public ConfigurablePropertyMetadata Metadata => _metadata;
 

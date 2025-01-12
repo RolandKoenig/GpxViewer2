@@ -6,7 +6,7 @@ namespace GpxViewer2.Util;
 
 public class PooledStringBuilders
 {
-    private ConcurrentStack<StringBuilder> _stringBuilders;
+    private readonly ConcurrentStack<StringBuilder> _stringBuilders;
 
     public int Count => _stringBuilders.Count;
 
@@ -21,7 +21,7 @@ public class PooledStringBuilders
         Current = new PooledStringBuilders();
     }
 
-    public PooledStringBuilders()
+    private PooledStringBuilders()
     {
         _stringBuilders = new ConcurrentStack<StringBuilder>();
     }

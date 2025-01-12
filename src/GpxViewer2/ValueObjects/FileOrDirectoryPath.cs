@@ -5,7 +5,7 @@ namespace GpxViewer2.ValueObjects;
 /// <summary>
 /// This ValueType ensures that more paths to the same file can not differ from each other.
 /// </summary>
-public readonly struct FileOrDirectoryPath(string path)
+public readonly struct FileOrDirectoryPath(string path) : IEquatable<FileOrDirectoryPath>
 {
     public static readonly FileOrDirectoryPath Empty = new();
 

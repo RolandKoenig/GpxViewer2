@@ -5,8 +5,8 @@ namespace GpxViewer2.Controls.PropertyGrid;
 
 public class ConfigurablePropertyMetadata
 {
-    private IPropertyContractResolver? _propertyContractResolver;
-    private PropertyDescriptor _descriptor;
+    private readonly IPropertyContractResolver? _propertyContractResolver;
+    private readonly PropertyDescriptor _descriptor;
 
     public string CategoryName { get; set; }
 

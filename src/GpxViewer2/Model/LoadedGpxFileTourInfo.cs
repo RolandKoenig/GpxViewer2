@@ -19,19 +19,19 @@ public class LoadedGpxFileTourInfo
 
     public List<LoadedGpxFileWaypointInfo> Waypoints { get; }
 
-    public double DistanceKm { get; private set; } = 0.0;
+    public double DistanceKm { get; private set; }
 
-    public double ElevationUpMeters { get; private set; } = 0.0;
+    public double ElevationUpMeters { get; private set; }
 
-    public double ElevationDownMeters { get; private set; } = 0.0;
+    public double ElevationDownMeters { get; private set; }
 
-    public double ElevationMaxMeters { get; private set; } = 0.0;
+    public double ElevationMaxMeters { get; private set; }
 
-    public double ElevationMinMeters { get; private set; } = 0.0;
+    public double ElevationMinMeters { get; private set; }
 
-    public int CountSegments { get; private set; } = 0;
+    public int CountSegments { get; private set; }
 
-    public int CountWaypointsWithinSegments { get; private set; } = 0;
+    public int CountWaypointsWithinSegments { get; private set; }
 
     public LoadedGpxFileTourInfo(LoadedGpxFile file, GpxRoute rawRouteData)
     {
@@ -124,11 +124,12 @@ public class LoadedGpxFileTourInfo
             }
         }
 
+        
         this.DistanceKm = distanceMeters / 1000.0;
         this.ElevationUpMeters = elevationUpMeters;
         this.ElevationDownMeters = elevationDownMeters;
-        this.ElevationMaxMeters = elevationMaxMeters == double.MinValue ? 0.0 : elevationMaxMeters;
-        this.ElevationMinMeters = elevationMinMeters == double.MaxValue ? 0.0 : elevationMinMeters;
+        this.ElevationMaxMeters = elevationMaxMeters.EqualsWithTolerance(double.MinValue, 0.001) ? 0.0 : elevationMaxMeters;
+        this.ElevationMinMeters = elevationMinMeters.EqualsWithTolerance(double.MaxValue, 0.001) ? 0.0 : elevationMinMeters;
         this.CountSegments = segmentCount;
         this.CountWaypointsWithinSegments = waypointCount;
     }
