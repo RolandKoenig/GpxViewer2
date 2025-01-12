@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using GpxViewer2.Model;
 using Mapsui.Nts;
 using RolandK.Formats.Gpx;
@@ -9,5 +8,5 @@ public class GeometryFeatureWithMetadata : GeometryFeature
 {
     public LoadedGpxFileTourInfo? Tour { get; set; }
 
-    public IReadOnlyList<GpxWaypoint> Points { get; set; }
+    public required IReadOnlyList<GpxWaypoint> Points { get; set; }
 }

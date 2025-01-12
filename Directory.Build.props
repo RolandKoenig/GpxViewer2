@@ -1,0 +1,20 @@
+<Project>
+    <PropertyGroup>
+
+        <!-- Common C# settings -->
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <LangVersion>13.0</LangVersion>
+        <IsPackable>false</IsPackable>
+
+        <!-- Warning / error configuration -->
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <WarningsAsErrors />
+        <NoWarn>1701,1702,1591</NoWarn>
+
+        <!-- Page security warning -->
+        <WarningsNotAsErrors>NU1900,NU1901,NU1902,NU1903,NU1904,NU1905</WarningsNotAsErrors>
+
+    </PropertyGroup>
+</Project>

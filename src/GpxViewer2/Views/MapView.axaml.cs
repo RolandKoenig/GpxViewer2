@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
+using System.Diagnostics.CodeAnalysis;
 using Avalonia.Input;
 using GpxViewer2.Model;
 using GpxViewer2.Views.Maps;
@@ -46,7 +44,9 @@ public partial class MapView : MvvmUserControl, IMapsViewService
     public event EventHandler<RouteClickedEventArgs>? RouteDoubleClicked;
 
     /// <inheritdoc />
+#pragma warning disable CS0067     // Event is part of the IViewService interface.
     public event EventHandler<ViewServiceRequestEventArgs>? ViewServiceRequest;
+#pragma warning restore CS0067
 
     public MapView()
     {
