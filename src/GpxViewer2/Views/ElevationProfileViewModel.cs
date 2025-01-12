@@ -1,6 +1,7 @@
 using System.Linq;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
+using GpxViewer2.Controls;
 using GpxViewer2.Messages;
 using GpxViewer2.Model;
 using GpxViewer2.Util;
@@ -8,7 +9,6 @@ using LiveChartsCore;
 using LiveChartsCore.Defaults;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
-using RKMediaGallery.Controls;
 using RolandK.Formats.Gpx;
 using SkiaSharp;
 

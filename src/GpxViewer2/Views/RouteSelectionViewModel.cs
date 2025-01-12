@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.Input;
+using GpxViewer2.Controls;
 using GpxViewer2.Messages;
 using GpxViewer2.Model;
 using GpxViewer2.Services.GpxFileStore;
@@ -12,7 +13,6 @@ using GpxViewer2.UseCases;
 using GpxViewer2.Util;
 using GpxViewer2.Views.RouteSelection;
 using GpxViewer2.ViewServices;
-using RKMediaGallery.Controls;
 using RolandK.AvaloniaExtensions.ViewServices;
 
 namespace GpxViewer2.Views;

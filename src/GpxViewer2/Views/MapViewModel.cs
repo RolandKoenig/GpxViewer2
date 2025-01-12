@@ -1,11 +1,10 @@
-using System;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.Input;
+using GpxViewer2.Controls;
 using GpxViewer2.Messages;
 using GpxViewer2.UseCases;
 using GpxViewer2.Util;
 using GpxViewer2.Views.Maps;
-using RKMediaGallery.Controls;
 
 namespace GpxViewer2.Views;
 

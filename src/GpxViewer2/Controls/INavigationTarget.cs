@@ -1,6 +1,6 @@
 ﻿using Avalonia.Controls;
 
-namespace RKMediaGallery.Controls;
+namespace GpxViewer2.Controls;
 
 public interface INavigationTarget
 {

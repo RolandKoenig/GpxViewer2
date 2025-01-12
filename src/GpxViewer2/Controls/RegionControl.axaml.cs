@@ -3,7 +3,6 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Data;
 using Avalonia.Interactivity;
-using RKMediaGallery.Controls;
 using RolandK.AvaloniaExtensions.DependencyInjection;
 
 namespace GpxViewer2.Controls;
