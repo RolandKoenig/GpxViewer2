@@ -14,7 +14,7 @@ I provide executables for Windows and macOS.
 ![alt text](assets/screenshots/screenshot_01_windows_1600x1000.png "RK GPXviewer 2 on Windows")
 
 ## Project is based on...
-GPXviewer is based on .Net 8 and the UI framework [Avalonia](https://github.com/AvaloniaUI/Avalonia).
+GPXviewer is based on .Net 9 and the UI framework [Avalonia](https://github.com/AvaloniaUI/Avalonia).
 
 Furthermore the project is based on following technologies / projects:
  - [CommunityToolkit](https://github.com/CommunityToolkit/dotnet): .NET Community Toolkit is a collection of helpers and APIs that work for all .NET developers and are agnostic of any specific UI platform
