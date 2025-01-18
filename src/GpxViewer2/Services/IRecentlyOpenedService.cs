@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using GpxViewer2.Services.RecentlyOpened;
+﻿using GpxViewer2.Services.RecentlyOpened;
 
 namespace GpxViewer2.Services;
 

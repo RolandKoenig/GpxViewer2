@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace GpxViewer2.Services.StartupArguments;
+﻿namespace GpxViewer2.Services.StartupArguments;
 
 public class StartupArgumentsContainer : IStartupArgumentsContainer
 {

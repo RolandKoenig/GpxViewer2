@@ -1,5 +1,4 @@
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using Avalonia.Input;
 using GpxViewer2.Model;
 using GpxViewer2.Views.Maps;

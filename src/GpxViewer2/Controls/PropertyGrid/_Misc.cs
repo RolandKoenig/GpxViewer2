@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace GpxViewer2.Controls.PropertyGrid;
+﻿namespace GpxViewer2.Controls.PropertyGrid;
 
 public enum PropertyValueType
 {

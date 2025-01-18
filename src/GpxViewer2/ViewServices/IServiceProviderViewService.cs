@@ -1,5 +1,4 @@
-﻿using System;
-using RolandK.AvaloniaExtensions.ViewServices.Base;
+﻿using RolandK.AvaloniaExtensions.ViewServices.Base;
 
 namespace GpxViewer2.ViewServices;
 

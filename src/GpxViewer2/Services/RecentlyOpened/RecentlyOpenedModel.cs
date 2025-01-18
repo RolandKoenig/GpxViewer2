@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace GpxViewer2.Services.RecentlyOpened;
+﻿namespace GpxViewer2.Services.RecentlyOpened;
 
 public class RecentlyOpenedModel
 {

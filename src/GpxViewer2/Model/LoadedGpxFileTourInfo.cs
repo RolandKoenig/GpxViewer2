@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using GpxViewer2.Model.GpxXmlExtensions;
+﻿using GpxViewer2.Model.GpxXmlExtensions;
 using GpxViewer2.Util;
 using RolandK.Formats.Gpx;
 

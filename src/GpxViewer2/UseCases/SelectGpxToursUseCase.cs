@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using GpxViewer2.Messages;
 using GpxViewer2.Model;
 using RolandK.InProcessMessaging;

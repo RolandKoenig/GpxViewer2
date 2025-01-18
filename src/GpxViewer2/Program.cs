@@ -1,5 +1,4 @@
-﻿using System;
-using Avalonia;
+﻿using Avalonia;
 using GpxViewer2.Model.GpxXmlExtensions;
 using GpxViewer2.Services;
 using GpxViewer2.Services.GpxFileStore;

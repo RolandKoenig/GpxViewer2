@@ -1,5 +1,3 @@
-using System.Linq;
-using System.Threading.Tasks;
 using GpxViewer2.Messages;
 using GpxViewer2.Services;
 using GpxViewer2.Services.RecentlyOpened;

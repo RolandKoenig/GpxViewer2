@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using GpxViewer2.Model;
+﻿using GpxViewer2.Model;
 using GpxViewer2.Util;
 using GpxViewer2.ValueObjects;
 

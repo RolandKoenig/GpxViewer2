@@ -1,5 +1,4 @@
-﻿using System;
-using RolandK.Formats.Gpx;
+﻿using RolandK.Formats.Gpx;
 
 namespace GpxViewer2.Util;
 

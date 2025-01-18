@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using GpxViewer2.Messages;
 using GpxViewer2.Services.GpxFileStore;
 using RolandK.InProcessMessaging;

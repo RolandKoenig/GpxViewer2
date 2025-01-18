@@ -1,4 +1,3 @@
-using System;
 using GpxViewer2.Model;
 
 namespace GpxViewer2.Views.Maps;

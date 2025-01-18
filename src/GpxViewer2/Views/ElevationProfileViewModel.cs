@@ -1,4 +1,3 @@
-using System.Linq;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using GpxViewer2.Controls;

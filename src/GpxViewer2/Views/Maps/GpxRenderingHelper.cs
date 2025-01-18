@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using GpxViewer2.Model;
 using GpxViewer2.Model.GpxXmlExtensions;
 using Mapsui.Projections;

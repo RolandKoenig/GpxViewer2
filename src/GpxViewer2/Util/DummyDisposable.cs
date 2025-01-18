@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GpxViewer2.Util;
+﻿namespace GpxViewer2.Util;
 
 /// <summary>
 /// Dummy class that implements IDisposable.

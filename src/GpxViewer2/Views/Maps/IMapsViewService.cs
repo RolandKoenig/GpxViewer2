@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using GpxViewer2.Model;
 using RolandK.AvaloniaExtensions.ViewServices.Base;
 

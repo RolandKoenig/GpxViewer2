@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using Avalonia.Controls;
 using GpxViewer2.Controls;
 using GpxViewer2.Services.RecentlyOpened;

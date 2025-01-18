@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using GpxViewer2.ValueObjects;
 
 namespace GpxViewer2.Services.GpxFileStore;

@@ -1,4 +1,3 @@
-using System;
 using Avalonia.Markup.Xaml;
 
 namespace GpxViewer2.MarkupExtensions;
