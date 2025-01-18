@@ -18,7 +18,6 @@ GPXviewer is based on .Net 9 and the UI framework [Avalonia](https://github.com/
 
 Furthermore the project is based on following technologies / projects:
  - [CommunityToolkit](https://github.com/CommunityToolkit/dotnet): .NET Community Toolkit is a collection of helpers and APIs that work for all .NET developers and are agnostic of any specific UI platform
- - [FluentAssertions](https://github.com/fluentassertions/fluentassertions): A very extensive set of extension methods that allow you to more naturally specify the expected outcome of a TDD or BDD-style unit tests
  - [Icons.Avalonia](https://github.com/Projektanker/Icons.Avalonia): A library to easily display icons in an Avalonia App
  - [Live-Charts2](https://github.com/beto-rodriguez/LiveCharts2): Simple, flexible, interactive & powerful charts, maps and gauges for .NET
  - [Mapsui](https://github.com/Mapsui/Mapsui): Mapsui is a .NET Map component for Avalonia, WPF and many more platforms

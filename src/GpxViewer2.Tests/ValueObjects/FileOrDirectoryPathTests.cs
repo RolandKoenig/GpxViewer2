@@ -1,4 +1,3 @@
-using FluentAssertions;
 using GpxViewer2.ValueObjects;
 
 namespace GpxViewer2.Tests.ValueObjects;
@@ -11,7 +10,7 @@ public class FileOrDirectoryPathTests
         var filePath1 = new FileOrDirectoryPath("/path/to/file1.txt");
         var filePath2 = new FileOrDirectoryPath("/path/to/file1.txt");
 
-        filePath1.Equals(filePath2).Should().BeTrue();
+        Assert.Equal(filePath1, filePath2);
     }
 
     [Fact]
@@ -20,7 +19,7 @@ public class FileOrDirectoryPathTests
         var filePath1 = new FileOrDirectoryPath("/path/to/file1.txt");
         var filePath2 = new FileOrDirectoryPath("/path/to/file2.txt");
 
-        filePath1.Equals(filePath2).Should().BeFalse();
+        Assert.NotEqual(filePath1, filePath2);
     }
 
     [Fact]
@@ -29,7 +28,7 @@ public class FileOrDirectoryPathTests
         var filePath1 = new FileOrDirectoryPath("/path/to/file1.txt");
         var filePath2 = new FileOrDirectoryPath("/path/to/file1.txt");
 
-        filePath1.GetHashCode().Should().Be(filePath2.GetHashCode());
+        Assert.Equal(filePath1.GetHashCode(), filePath2.GetHashCode());
     }
 
     [Fact]
@@ -38,7 +37,7 @@ public class FileOrDirectoryPathTests
         var filePath1 = new FileOrDirectoryPath("/path/to/file1.txt");
         var filePath2 = new FileOrDirectoryPath("/path/to/file2.txt");
 
-        filePath1.GetHashCode().Should().NotBe(filePath2.GetHashCode());
+        Assert.NotEqual(filePath1.GetHashCode(), filePath2.GetHashCode());
     }
 
     [Fact]
@@ -47,7 +46,10 @@ public class FileOrDirectoryPathTests
         var filePath = new FileOrDirectoryPath("/path/to/file.txt");
         var fullPath = Path.GetFullPath("/path/to/file.txt");
 
-        filePath.ToString().Should().Be(fullPath);
+        Assert.Equal(
+            fullPath, 
+            filePath.ToString(), 
+            ignoreCase: OperatingSystem.IsWindows());
     }
 
     [Fact]
@@ -55,8 +57,8 @@ public class FileOrDirectoryPathTests
     {
         var filePath = new FileOrDirectoryPath("file.txt");
 
-        filePath.ToString().Should().NotBe("file.txt");
-        filePath.ToString().Should().EndWith("file.txt");
+        Assert.NotEqual("file.txt", filePath.ToString());
+        Assert.EndsWith("file.txt", filePath.ToString());
     }
 
     [Fact]
@@ -65,7 +67,7 @@ public class FileOrDirectoryPathTests
         var filePath1 = new FileOrDirectoryPath("/path/to/file1.txt");
         var filePath2 = new FileOrDirectoryPath("/path/to/file1.txt");
 
-        (filePath1 == filePath2).Should().BeTrue();
+        Assert.True(filePath1 == filePath2);
     }
 
     [Fact]
@@ -74,7 +76,7 @@ public class FileOrDirectoryPathTests
         var filePath1 = new FileOrDirectoryPath("/path/to/file1.txt");
         var filePath2 = new FileOrDirectoryPath("/path/to/file2.txt");
 
-        (filePath1 == filePath2).Should().BeFalse();
+        Assert.False(filePath1 == filePath2);
     }
 
     [Fact]
@@ -83,7 +85,7 @@ public class FileOrDirectoryPathTests
         var filePath1 = new FileOrDirectoryPath("/path/to/file1.txt");
         var filePath2 = new FileOrDirectoryPath("/path/to/file1.txt");
 
-        (filePath1 != filePath2).Should().BeFalse();
+        Assert.False(filePath1 != filePath2);
     }
 
     [Fact]
@@ -92,6 +94,6 @@ public class FileOrDirectoryPathTests
         var filePath1 = new FileOrDirectoryPath("/path/to/file1.txt");
         var filePath2 = new FileOrDirectoryPath("/path/to/file2.txt");
 
-        (filePath1 != filePath2).Should().BeTrue();
+        Assert.True(filePath1 != filePath2);
     }
 }

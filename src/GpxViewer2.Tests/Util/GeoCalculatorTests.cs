@@ -1,4 +1,3 @@
-using FluentAssertions;
 using GpxViewer2.Util;
 using RolandK.Formats.Gpx;
 
@@ -28,6 +27,6 @@ public class GeoCalculatorTests
         var result = GeoCalculator.CalculateDistanceMeters(point1, point2);
 
         // Assert
-        result.Should().BeApproximately(expectedDistance, 50000); // Accept a bit of deviation due to method accuracy
+        Assert.True(result.EqualsWithTolerance(expectedDistance, 50000)); // Accept a bit of deviation due to method accuracy
     }
 }

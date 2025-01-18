@@ -1,4 +1,3 @@
-using FluentAssertions;
 using GpxViewer2.Util;
 
 namespace GpxViewer2.Tests.Util;
@@ -18,6 +17,7 @@ public class DoubleExtensionTests
     public void Equals3DigitPrecision_EqualityTests(double left, double right, bool expectedResult)
     {
         var result = left.EqualsWithTolerance(right, 0.001);
-        result.Should().Be(expectedResult);
+
+        Assert.Equal(expectedResult, result);
     }
 }
