@@ -4,6 +4,7 @@
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
         <ApplicationIcon>..\..\assets\GPXviewer.ico</ApplicationIcon>
+        <AssemblyName>RolandK GPXviewer 2</AssemblyName>
     </PropertyGroup>
     
     <ItemGroup>
