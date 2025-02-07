@@ -1,4 +1,4 @@
-<ext:MvvmWindow xmlns="https://github.com/avaloniaui"
+<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -13,7 +13,6 @@
         d:DataContext="{x:Static local:MainWindowViewModel.EmptyViewModel}"
         ExtendClientAreaToDecorationsHint="True"
         Title="{Binding Path=Title}"
-        ViewFor="{x:Type local:MainWindowViewModel}"
         Icon="Assets/GPXviewer.ico"
         DataContext="{ext:CreateUsingDependencyInjection Type={x:Type local:MainWindowViewModel}}">
     <NativeMenu.Menu>
@@ -114,4 +113,4 @@
         </ext:MainWindowFrame.MainContentArea>
         
     </ext:MainWindowFrame>
-</ext:MvvmWindow>
+</Window>

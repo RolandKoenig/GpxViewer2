@@ -1,17 +1,15 @@
-<ext:MvvmUserControl xmlns="https://github.com/avaloniaui"
+<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:ext="https://github.com/RolandK.AvaloniaExtensions"
              xmlns:i="https://github.com/projektanker/icons.avalonia"
              xmlns:local="clr-namespace:GpxViewer2.Views"
              xmlns:localUtil="clr-namespace:GpxViewer2.Views.RouteSelection"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="GpxViewer2.Views.RouteSelectionView"
              x:DataType="local:RouteSelectionViewModel"
-             d:DataContext="{x:Static local:RouteSelectionViewModel.EmptyViewModel}"
-             ViewFor="{x:Type local:RouteSelectionViewModel}">
-    <ext:MvvmUserControl.Resources>
+             d:DataContext="{x:Static local:RouteSelectionViewModel.EmptyViewModel}">
+    <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Light">
@@ -24,7 +22,7 @@
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
-    </ext:MvvmUserControl.Resources>
+    </UserControl.Resources>
     
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top">
@@ -177,4 +175,4 @@
             </TreeView.DataTemplates>
         </TreeView>
     </DockPanel>
-</ext:MvvmUserControl>
+</UserControl>
