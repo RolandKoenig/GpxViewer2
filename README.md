@@ -1,4 +1,4 @@
-# RK GPXviewer 2 <img src="assets/GPXviewer.svg" width="32" />
+# RolandK GPXviewer 2 <img src="assets/GPXviewer.svg" width="32" />
 ## About
 GPXviewer 2 is a cross-platform application to view .gpx (GPS Exchange Format) files. 
 I started developing the inital Version 1 in preparation for a tour over the alps in summer 2021 (see https://github.com/RolandKoenig/GpxViewer). 
@@ -8,10 +8,10 @@ I provide executables for Windows and macOS.
 
 ## Screenshots
 ### macOS
-![alt text](assets/screenshots/screenshot_01_macos_1600x1000.png "RK GPXviewer 2 on macOS")
+![alt text](assets/screenshots/screenshot_01_macos_1600x1000.png "RolandK GPXviewer 2 on macOS")
 
 ### Windows
-![alt text](assets/screenshots/screenshot_01_windows_1600x1000.png "RK GPXviewer 2 on Windows")
+![alt text](assets/screenshots/screenshot_01_windows_1600x1000.png "RolandK GPXviewer 2 on Windows")
 
 ## Project is based on...
 GPXviewer is based on .Net 9 and the UI framework [Avalonia](https://github.com/AvaloniaUI/Avalonia).

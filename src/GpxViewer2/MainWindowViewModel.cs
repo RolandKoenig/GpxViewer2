@@ -37,7 +37,7 @@ public partial class MainWindowViewModel : OwnViewModelBase
         get
         {
             var strBuilder = new StringBuilder(128);
-            strBuilder.Append("RK GPXviewer 2");
+            strBuilder.Append("RolandK GPXviewer 2");
 
             if (this.AnyDataChanged)
             {
