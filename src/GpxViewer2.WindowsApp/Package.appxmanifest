@@ -12,7 +12,7 @@
     Version="2.0.0.0" />
 
   <Properties>
-    <DisplayName>RK GPXviewer 2</DisplayName>
+    <DisplayName>RolandK GPXviewer 2</DisplayName>
     <PublisherDisplayName>rolan</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
@@ -31,8 +31,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="RK GPXviewer 2"
-        Description="RK GPXviewer 2"
+        DisplayName="RolandK GPXviewer 2"
+        Description="RolandK GPXviewer 2"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
