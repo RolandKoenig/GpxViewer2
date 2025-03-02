@@ -1,0 +1,29 @@
+name: Continuous integration and delivery
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/continuous_integration_and_delivery.yml
+      - scripts/build-and-test.ps1
+      - src/**
+      - Directory.Build.props
+      - global.json
+
+jobs:
+  
+  # Default CI / Testing
+  build-and-test: 
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - uses: actions/setup-dotnet@v4
+      with:
+        global-json-file: "./global.json"
+      
+    - name: Build and test
+      shell: pwsh
+      working-directory: ./scripts
+      run: ./build-and-test.ps1
