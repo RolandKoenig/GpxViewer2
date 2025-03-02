@@ -31,6 +31,9 @@ public partial class MainWindowViewModel : OwnViewModelBase
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(Title))]
     private bool _anyDataChanged = false;
+    
+    [ObservableProperty]
+    private double _zoomLevel = 1.0;
 
     public string Title
     {
@@ -134,6 +137,12 @@ public partial class MainWindowViewModel : OwnViewModelBase
         this.TriggerSaveBeforeExit();
 
         return false;
+    }
+    
+    [RelayCommand]
+    public void SetZoomLevel(double zoomLevel)
+    {
+        this.ZoomLevel = zoomLevel;
     }
 
     private async void TriggerSaveBeforeExit()
