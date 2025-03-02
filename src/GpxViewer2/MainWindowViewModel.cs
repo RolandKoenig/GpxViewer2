@@ -33,7 +33,10 @@ public partial class MainWindowViewModel : OwnViewModelBase
     private bool _anyDataChanged = false;
     
     [ObservableProperty]
-    private double _zoomLevel = 1.0;
+    [NotifyPropertyChangedFor(nameof(ZoomMenuItemDisplayString))]
+    private double _fullAppZoomLevel = 1.0;
+
+    public string ZoomMenuItemDisplayString => $"Zoom (Current: {this.FullAppZoomLevel * 100:N0}%)";
 
     public string Title
     {
@@ -139,10 +142,15 @@ public partial class MainWindowViewModel : OwnViewModelBase
         return false;
     }
     
-    [RelayCommand]
-    public void SetZoomLevel(double zoomLevel)
+    [RelayCommand(CanExecute = nameof(CanSetZoomLevel))]
+    public void SetZoomLevel(double fullAppZoomLevel)
     {
-        this.ZoomLevel = zoomLevel;
+        this.FullAppZoomLevel = fullAppZoomLevel;
+    }
+
+    public bool CanSetZoomLevel(double fullAppZoomLevel)
+    {
+        return Math.Abs(fullAppZoomLevel - this.FullAppZoomLevel) > 0.001;
     }
 
     private async void TriggerSaveBeforeExit()

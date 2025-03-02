@@ -40,37 +40,36 @@
             
             <NativeMenuItem Header="View">
                 <NativeMenu>
-                    <NativeMenuItem Header="Zoom (Current: 100%)">
+                    <NativeMenuItem Header="{Binding ZoomMenuItemDisplayString}">
                         <NativeMenu>
-                            
                             <NativeMenuItem Header="70%"
                                             Command="{Binding SetZoomLevel}" 
-                                            CommandParameter="{localMarkup:DoubleValue 0.7}" />
+                                            CommandParameter="{ext:Double 0.7}" />
                             <NativeMenuItem Header="80%"
                                             Command="{Binding SetZoomLevel}" 
-                                            CommandParameter="{localMarkup:DoubleValue 0.8}" />
+                                            CommandParameter="{ext:Double 0.8}" />
                             <NativeMenuItem Header="90%"
                                             Command="{Binding Path=SetZoomLevel}" 
-                                            CommandParameter="{localMarkup:DoubleValue 0.9}" />
+                                            CommandParameter="{ext:Double 0.9}" />
                             <NativeMenuItem Header="100%"
                                             Command="{Binding Path=SetZoomLevel}" 
-                                            CommandParameter="{localMarkup:DoubleValue 1.0}"
+                                            CommandParameter="{ext:Double 1.0}"
                                             IsChecked="True"/>
                             <NativeMenuItem Header="110%"
                                             Command="{Binding Path=SetZoomLevel}" 
-                                            CommandParameter="{localMarkup:DoubleValue 1.1}" />
+                                            CommandParameter="{ext:Double 1.1}" />
                             <NativeMenuItem Header="125%"
                                             Command="{Binding Path=SetZoomLevel}" 
-                                            CommandParameter="{localMarkup:DoubleValue 1.25}" />
+                                            CommandParameter="{ext:Double 1.25}" />
                             <NativeMenuItem Header="150%"
                                             Command="{Binding Path=SetZoomLevel}" 
-                                            CommandParameter="{localMarkup:DoubleValue 1.5}" />
+                                            CommandParameter="{ext:Double 1.5}" />
                             <NativeMenuItem Header="175%"
                                             Command="{Binding Path=SetZoomLevel}" 
-                                            CommandParameter="{localMarkup:DoubleValue 1.75}" />
+                                            CommandParameter="{ext:Double 1.75}" />
                             <NativeMenuItem Header="200%"
                                             Command="{Binding Path=SetZoomLevel}" 
-                                            CommandParameter="{localMarkup:DoubleValue 2.0}" />
+                                            CommandParameter="{ext:Double 2.0}" />
                         </NativeMenu>
                     </NativeMenuItem>
                 </NativeMenu>
@@ -78,7 +77,7 @@
         </NativeMenu>
     </NativeMenu.Menu>
     
-    <ext:MainWindowFrame>
+    <ext:MainWindowFrame FullAppZoom="{Binding FullAppZoomLevel}">
         <ext:MainWindowFrame.CustomTitleArea>
             <StackPanel Orientation="Horizontal"
                         Margin="6">
@@ -95,65 +94,58 @@
         </ext:MainWindowFrame.CustomTitleArea>
         
         <ext:MainWindowFrame.MainContentArea>
-            <LayoutTransformControl>
-                <LayoutTransformControl.LayoutTransform>
-                    <ScaleTransform ScaleX="{Binding Path=ZoomLevel}"
-                                    ScaleY="{Binding Path=ZoomLevel}" />
-                </LayoutTransformControl.LayoutTransform>
+            <DockPanel LastChildFill="True">
+                <Menu DockPanel.Dock="Top"
+                      IsVisible="{localMarkup:IsNonMacOs}">
+                    <MenuItem Header="File">
+                        <MenuItem Header="Load File"
+                                  Command="{Binding Path=LoadFileCommand}" />
+                        <MenuItem Header="Load Directory"
+                                  Command="{Binding Path=LoadDirectoryCommand}" />
+                        <Separator />
+                        <MenuItem x:Name="MnuRecentlyOpened" 
+                                  Header="RecentlyOpened" />
+                        <Separator />
+                        <MenuItem Header="Save All"
+                                  Command="{Binding Path=SaveAllCommand}" />
+                        <Separator />
+                        <MenuItem Header="Exit"
+                                  Command="{Binding Path=ExitCommand}" />
+                    </MenuItem>
+                </Menu>
                 
-                <DockPanel LastChildFill="True">
-                    <Menu DockPanel.Dock="Top"
-                          IsVisible="{localMarkup:IsNonMacOs}">
-                        <MenuItem Header="File">
-                            <MenuItem Header="Load File"
-                                      Command="{Binding Path=LoadFileCommand}" />
-                            <MenuItem Header="Load Directory"
-                                      Command="{Binding Path=LoadDirectoryCommand}" />
-                            <Separator />
-                            <MenuItem x:Name="MnuRecentlyOpened" 
-                                      Header="RecentlyOpened" />
-                            <Separator />
-                            <MenuItem Header="Save All"
-                                      Command="{Binding Path=SaveAllCommand}" />
-                            <Separator />
-                            <MenuItem Header="Exit"
-                                      Command="{Binding Path=ExitCommand}" />
-                        </MenuItem>
-                    </Menu>
-                    
-                    <Grid ColumnDefinitions="200,8,*"
-                          Margin="4,0,4,4">
-            
-                        <!-- Left side ('Route selection' and 'Route detail') -->
-                        <Grid Grid.Column="0" 
-                              RowDefinitions="*,8,300">
-                            <controls:RegionControl Grid.Row="0"
-                                                    ViewModelType="{x:Type views:RouteSelectionViewModel}" />
-                            <GridSplitter Grid.Row="1"
-                                          HorizontalAlignment="Stretch"
-                                          VerticalAlignment="Stretch" />
-                            <controls:RegionControl Grid.Row="2" 
-                                                    ViewModelType="{x:Type views:RouteDetailViewModel}" />
-                        </Grid>
-            
-                        <GridSplitter Grid.Column="1"
+                <Grid ColumnDefinitions="200,8,*"
+                      Margin="4,0,4,4">
+        
+                    <!-- Left side ('Route selection' and 'Route detail') -->
+                    <Grid Grid.Column="0" 
+                          RowDefinitions="*,8,300">
+                        <controls:RegionControl Grid.Row="0"
+                                                ViewModelType="{x:Type views:RouteSelectionViewModel}" />
+                        <GridSplitter Grid.Row="1"
                                       HorizontalAlignment="Stretch"
                                       VerticalAlignment="Stretch" />
-            
-                        <!-- Right side ('Map' and 'Elevation profile') -->
-                        <Grid Grid.Column="2" 
-                              RowDefinitions="*,8,200">
-                            <controls:RegionControl Grid.Row="0"
-                                                    ViewModelType="{x:Type views:MapViewModel}" />
-                            <GridSplitter Grid.Row="1"
-                                          HorizontalAlignment="Stretch"
-                                          VerticalAlignment="Stretch" />
-                            <controls:RegionControl Grid.Row="2"
-                                                    ViewModelType="{x:Type views:ElevationProfileViewModel}" />
-                        </Grid>
-                    </Grid> 
-                </DockPanel>
-            </LayoutTransformControl>
+                        <controls:RegionControl Grid.Row="2" 
+                                                ViewModelType="{x:Type views:RouteDetailViewModel}" />
+                    </Grid>
+        
+                    <GridSplitter Grid.Column="1"
+                                  HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Stretch" />
+        
+                    <!-- Right side ('Map' and 'Elevation profile') -->
+                    <Grid Grid.Column="2" 
+                          RowDefinitions="*,8,200">
+                        <controls:RegionControl Grid.Row="0"
+                                                ViewModelType="{x:Type views:MapViewModel}" />
+                        <GridSplitter Grid.Row="1"
+                                      HorizontalAlignment="Stretch"
+                                      VerticalAlignment="Stretch" />
+                        <controls:RegionControl Grid.Row="2"
+                                                ViewModelType="{x:Type views:ElevationProfileViewModel}" />
+                    </Grid>
+                </Grid> 
+            </DockPanel>
         </ext:MainWindowFrame.MainContentArea>
     </ext:MainWindowFrame>
 </Window>
