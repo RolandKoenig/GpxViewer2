@@ -40,44 +40,16 @@
             
             <NativeMenuItem Header="View">
                 <NativeMenu>
-                    <NativeMenuItem Header="{Binding ZoomMenuItemDisplayString}">
-                        <NativeMenu>
-                            <NativeMenuItem Header="70%"
-                                            Command="{Binding SetZoomLevel}" 
-                                            CommandParameter="{ext:Double 0.7}" />
-                            <NativeMenuItem Header="80%"
-                                            Command="{Binding SetZoomLevel}" 
-                                            CommandParameter="{ext:Double 0.8}" />
-                            <NativeMenuItem Header="90%"
-                                            Command="{Binding Path=SetZoomLevel}" 
-                                            CommandParameter="{ext:Double 0.9}" />
-                            <NativeMenuItem Header="100%"
-                                            Command="{Binding Path=SetZoomLevel}" 
-                                            CommandParameter="{ext:Double 1.0}"
-                                            IsChecked="True"/>
-                            <NativeMenuItem Header="110%"
-                                            Command="{Binding Path=SetZoomLevel}" 
-                                            CommandParameter="{ext:Double 1.1}" />
-                            <NativeMenuItem Header="125%"
-                                            Command="{Binding Path=SetZoomLevel}" 
-                                            CommandParameter="{ext:Double 1.25}" />
-                            <NativeMenuItem Header="150%"
-                                            Command="{Binding Path=SetZoomLevel}" 
-                                            CommandParameter="{ext:Double 1.5}" />
-                            <NativeMenuItem Header="175%"
-                                            Command="{Binding Path=SetZoomLevel}" 
-                                            CommandParameter="{ext:Double 1.75}" />
-                            <NativeMenuItem Header="200%"
-                                            Command="{Binding Path=SetZoomLevel}" 
-                                            CommandParameter="{ext:Double 2.0}" />
-                        </NativeMenu>
-                    </NativeMenuItem>
+                    <controls:NativeMenuTaggedItem Tag="ZoomLevels"
+                                                   Header="{Binding FullApplicationZoomMenuItemDisplayString}">
+                        <NativeMenu />
+                    </controls:NativeMenuTaggedItem>
                 </NativeMenu>
             </NativeMenuItem>
         </NativeMenu>
     </NativeMenu.Menu>
     
-    <ext:MainWindowFrame FullAppZoom="{Binding FullAppZoomLevel}">
+    <ext:MainWindowFrame FullAppZoom="{Binding SelectedFullApplicationZoomLevel.ZoomLevel}">
         <ext:MainWindowFrame.CustomTitleArea>
             <StackPanel Orientation="Horizontal"
                         Margin="6">
@@ -111,6 +83,12 @@
                         <Separator />
                         <MenuItem Header="Exit"
                                   Command="{Binding Path=ExitCommand}" />
+                    </MenuItem>
+                    
+                    <MenuItem Header="View">
+                        <MenuItem Name="MnuZoomLevels" 
+                                  Header="{Binding FullApplicationZoomMenuItemDisplayString}">
+                        </MenuItem>
                     </MenuItem>
                 </Menu>
                 
