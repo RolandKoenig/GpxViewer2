@@ -1,0 +1,5 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.2.5" />
+    </ItemGroup>
+</Project>

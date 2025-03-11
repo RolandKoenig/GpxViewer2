@@ -1,11 +1,19 @@
-using Avalonia.Markup.Xaml;
+using GpxViewer2.Services;
+using Microsoft.Extensions.DependencyInjection;
+using RolandK.AvaloniaExtensions.DependencyInjection.Markup;
 
 namespace GpxViewer2.MarkupExtensions;
 
-public class IsNonMacOsExtension : MarkupExtension
+public class IsNonMacOsExtension : MarkupExtensionWithDependencyInjection
 {
-    public override object ProvideValue(IServiceProvider serviceProvider)
+    protected override object ProvideDefaultValue(IServiceProvider xamlServiceProvider)
     {
         return !OperatingSystem.IsMacOS();
+    }
+
+    protected override object ProvideValue(IServiceProvider xamlServiceProvider, IServiceProvider appServiceProvider)
+    {
+        var osChecker = appServiceProvider.GetRequiredService<IOsChecker>();
+        return !osChecker.IsOnMacOS();
     }
 }

@@ -2,6 +2,7 @@
 using GpxViewer2.Model.GpxXmlExtensions;
 using GpxViewer2.Services;
 using GpxViewer2.Services.GpxFileStore;
+using GpxViewer2.Services.OsChecker;
 using GpxViewer2.Services.RecentlyOpened;
 using GpxViewer2.Services.StartupArguments;
 using GpxViewer2.UseCases;
@@ -42,7 +43,7 @@ public static class Program
 
     // Avalonia configuration, don't remove; also used by visual designer.
     // ReSharper disable once MemberCanBePrivate.Global
-    public static AppBuilder BuildAvaloniaApp(string[] args)
+    public static AppBuilder BuildAvaloniaApp(params string[] args)
     {
         IconProvider.Current
             .Register<FontAwesomeIconProvider>();
@@ -65,8 +66,9 @@ public static class Program
                 services.AddSingleton<IRecentlyOpenedService>(
                     _ => new RecentlyOpenedService(".RKGpxViewer2", 15));
                 services.AddSingleton<IGpxFileRepositoryService, GpxFileRepositoryService>();
+                services.AddSingleton<IOsChecker, DefaultOsChecker>();
                 services.AddSingleton<IStartupArgumentsContainer>(_ => new StartupArgumentsContainer(args));
-
+                
                 // ViewModels
                 services.AddTransient<MainWindowViewModel>();
                 services.AddTransient<MapViewModel>();
