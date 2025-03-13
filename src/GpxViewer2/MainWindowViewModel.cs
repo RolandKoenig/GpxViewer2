@@ -31,6 +31,25 @@ public partial class MainWindowViewModel : OwnViewModelBase
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(Title))]
     private bool _anyDataChanged = false;
+    
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(FullApplicationZoomMenuItemDisplayString))]
+    private FullApplicationZoomItem _selectedFullApplicationZoomLevel = new FullApplicationZoomItem("100%", 1.0);
+
+    public string FullApplicationZoomMenuItemDisplayString => $"Zoom (Current: {this.SelectedFullApplicationZoomLevel.DisplayString})";
+
+    public FullApplicationZoomItem[] FullApplicationZoomLevels { get; } =
+    [
+        new("70%", 0.7),
+        new("80%", 0.8),
+        new("90%", 0.9),
+        new("100%", 1.0),
+        new("110%", 1.1),
+        new("125%", 1.25),
+        new("150%", 1.5),
+        new("175%", 1.75),
+        new("200%", 2.0),
+    ];
 
     public string Title
     {
@@ -134,6 +153,19 @@ public partial class MainWindowViewModel : OwnViewModelBase
         this.TriggerSaveBeforeExit();
 
         return false;
+    }
+    
+    [RelayCommand(CanExecute = nameof(CanSetFullApplicationZoomLevel))]
+    public void SetFullApplicationZoomLevel(FullApplicationZoomItem zoomLevel)
+    {
+        this.SelectedFullApplicationZoomLevel = zoomLevel;
+    }
+
+    public bool CanSetFullApplicationZoomLevel(FullApplicationZoomItem zoomLevel)
+    {
+        if(zoomLevel == this.SelectedFullApplicationZoomLevel){ return false; }
+
+        return true;
     }
 
     private async void TriggerSaveBeforeExit()

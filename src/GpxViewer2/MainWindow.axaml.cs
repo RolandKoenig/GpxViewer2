@@ -20,11 +20,13 @@ public partial class MainWindow : MvvmWindow
     private void UpdateMenuBars()
     {
         IReadOnlyList<RecentlyOpenedFileOrDirectoryModel> recentlyOpenedEntries = [];
+        IReadOnlyList<FullApplicationZoomItem> zoomLevels = [];
         MainWindowViewModel? viewModel = null;
         if (this.DataContext is MainWindowViewModel vm)
         {
             viewModel = vm;
             recentlyOpenedEntries = viewModel.RecentlyOpenedEntries;
+            zoomLevels = viewModel.FullApplicationZoomLevels;
         }
 
         // Update main menu
@@ -40,6 +42,17 @@ public partial class MainWindow : MvvmWindow
             });
         }
         this.MnuRecentlyOpened.IsEnabled = this.MnuRecentlyOpened.Items.Count > 0;
+        
+        this.MnuZoomLevels.Items.Clear();
+        foreach (var actZoomLevel in zoomLevels)
+        {
+            this.MnuZoomLevels.Items.Add(new MenuItem()
+            {
+                Header = actZoomLevel.DisplayString,
+                Command = viewModel?.SetFullApplicationZoomLevelCommand,
+                CommandParameter = actZoomLevel
+            });
+        }
 
         // Update native menu
         var nativeMenuRecentlyOpened = FindTaggedItemInNativeMenu(NativeMenu.GetMenu(this)!, "RecentlyOpened");
@@ -60,6 +73,25 @@ public partial class MainWindow : MvvmWindow
                 });
             }
             nativeMenuRecentlyOpened.IsEnabled = newChildNativeMenu.Items.Count > 0;
+        }
+        
+        var nativeMenuZoomLevels = FindTaggedItemInNativeMenu(NativeMenu.GetMenu(this)!, "ZoomLevels");
+        if ((nativeMenuZoomLevels != null) &&
+            (nativeMenuZoomLevels.Menu != null))
+        {
+            var newChildNativeMenu = nativeMenuZoomLevels.Menu;
+            newChildNativeMenu.Items.Clear();
+
+            foreach (var actZoomLevel in zoomLevels)
+            {
+                newChildNativeMenu.Items.Add(new NativeMenuItem()
+                {
+                    Header = actZoomLevel.DisplayString,
+                    Command = viewModel?.SetFullApplicationZoomLevelCommand,
+                    CommandParameter = actZoomLevel,
+                    IsEnabled = viewModel?.CanSetFullApplicationZoomLevel(actZoomLevel) ?? false
+                });
+            }
         }
     }
 
@@ -101,6 +133,7 @@ public partial class MainWindow : MvvmWindow
         switch (args.PropertyName)
         {
             case nameof(MainWindowViewModel.RecentlyOpenedEntries):
+            case nameof(MainWindowViewModel.SetFullApplicationZoomLevelCommand):    
                 this.UpdateMenuBars();
                 break;
         }

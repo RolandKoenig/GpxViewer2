@@ -4,6 +4,8 @@
     "projects": [
       "src\\GpxViewer2.ExceptionViewer\\GpxViewer2.ExceptionViewer.csproj",
       "src\\GpxViewer2.Tests\\GpxViewer2.Tests.csproj",
+      "src\\GpxViewer2.UiTests\\GpxViewer2.UiTests.csproj",
+      "src\\GpxViewer2.UiTestToolkit\\GpxViewer2.UiTestToolkit.csproj",
       "src\\GpxViewer2\\GpxViewer2.csproj"
     ]
   }

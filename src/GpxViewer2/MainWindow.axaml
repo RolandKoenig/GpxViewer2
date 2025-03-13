@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ext="https://github.com/RolandK.AvaloniaExtensions"
+        xmlns:testtk="https://github.com/RolandKUiTestToolkit"
         xmlns:local="clr-namespace:GpxViewer2"
         xmlns:localMarkup="clr-namespace:GpxViewer2.MarkupExtensions"
         xmlns:controls="clr-namespace:GpxViewer2.Controls"
@@ -37,10 +38,19 @@
                                     Command="{Binding Path=SaveAllCommand}"/>
                 </NativeMenu>
             </NativeMenuItem>
+            
+            <NativeMenuItem Header="View">
+                <NativeMenu>
+                    <controls:NativeMenuTaggedItem Tag="ZoomLevels"
+                                                   Header="{Binding FullApplicationZoomMenuItemDisplayString}">
+                        <NativeMenu />
+                    </controls:NativeMenuTaggedItem>
+                </NativeMenu>
+            </NativeMenuItem>
         </NativeMenu>
     </NativeMenu.Menu>
     
-    <ext:MainWindowFrame>
+    <ext:MainWindowFrame FullAppZoom="{Binding SelectedFullApplicationZoomLevel.ZoomLevel}">
         <ext:MainWindowFrame.CustomTitleArea>
             <StackPanel Orientation="Horizontal"
                         Margin="6">
@@ -59,7 +69,8 @@
         <ext:MainWindowFrame.MainContentArea>
             <DockPanel LastChildFill="True">
                 <Menu DockPanel.Dock="Top"
-                      IsVisible="{localMarkup:IsNonMacOs}">
+                      IsVisible="{localMarkup:IsNonMacOs}"
+                      testtk:TestProperties.TestId="MainMenu">
                     <MenuItem Header="File">
                         <MenuItem Header="Load File"
                                   Command="{Binding Path=LoadFileCommand}" />
@@ -74,6 +85,13 @@
                         <Separator />
                         <MenuItem Header="Exit"
                                   Command="{Binding Path=ExitCommand}" />
+                    </MenuItem>
+                    
+                    <MenuItem Header="View">
+                        <MenuItem Name="MnuZoomLevels"
+                                  Header="{Binding FullApplicationZoomMenuItemDisplayString}"
+                                  testtk:TestProperties.TestId="MnuZoomLevels">
+                        </MenuItem>
                     </MenuItem>
                 </Menu>
                 
@@ -109,8 +127,6 @@
                     </Grid>
                 </Grid> 
             </DockPanel>
-            
         </ext:MainWindowFrame.MainContentArea>
-        
     </ext:MainWindowFrame>
 </Window>
