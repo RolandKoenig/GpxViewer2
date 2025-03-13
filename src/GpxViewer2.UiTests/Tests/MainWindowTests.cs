@@ -36,7 +36,9 @@ public class MainWindowTests
         mainWindow.Show();
         
         // Assert
-        var mainMenu = await mainWindow.LocateByTestId("MainMenu").GetSingleAsync();
+        var mainMenu = await mainWindow
+            .LocateByTestId("MainMenu", LocatorOptions.Default with { IncludeInvisible = true })
+            .GetSingleAsync();
         Assert.Equal(expectedVisibility, mainMenu.IsVisible);
     }
 }
