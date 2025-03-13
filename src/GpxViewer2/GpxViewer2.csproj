@@ -41,5 +41,6 @@
     
     <ItemGroup>
       <ProjectReference Include="..\GpxViewer2.ExceptionViewer\GpxViewer2.ExceptionViewer.csproj" />
+      <ProjectReference Include="..\GpxViewer2.UiTestToolkit\GpxViewer2.UiTestToolkit.csproj" />
     </ItemGroup>
 </Project>

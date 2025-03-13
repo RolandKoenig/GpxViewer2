@@ -1,4 +1,7 @@
 ﻿using Avalonia.Headless.XUnit;
+using GpxViewer2.UiTestToolkit.Actions;
+using GpxViewer2.UiTestToolkit.Locators;
+using NSubstitute;
 
 namespace GpxViewer2.UiTests.Tests;
 
@@ -21,9 +24,19 @@ public class MainWindowTests
         Assert.StartsWith(mainWindow.Title, "RolandK GPXviewer 2");
     }
 
-    [AvaloniaFact]
-    public void MainWindow_main_menu_bar_visibility()
+    [AvaloniaTheory]
+    [InlineData(false, true)]
+    [InlineData(true, false)]
+    public async Task MainWindow_main_menu_bar_visibility(bool isOnMac, bool expectedVisibility)
     {
+        // Arrange
+        TestApp.OsCheckerMock.IsOnMacOS().Returns(isOnMac);
         
+        var mainWindow = new MainWindow();
+        mainWindow.Show();
+        
+        // Assert
+        var mainMenu = await mainWindow.LocateByTestId("MainMenu").GetSingleAsync();
+        Assert.Equal(expectedVisibility, mainMenu.IsVisible);
     }
 }

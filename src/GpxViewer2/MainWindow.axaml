@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ext="https://github.com/RolandK.AvaloniaExtensions"
+        xmlns:testtk="https://github.com/RolandKUiTestToolkit"
         xmlns:local="clr-namespace:GpxViewer2"
         xmlns:localMarkup="clr-namespace:GpxViewer2.MarkupExtensions"
         xmlns:controls="clr-namespace:GpxViewer2.Controls"
@@ -68,7 +69,8 @@
         <ext:MainWindowFrame.MainContentArea>
             <DockPanel LastChildFill="True">
                 <Menu DockPanel.Dock="Top"
-                      IsVisible="{localMarkup:IsNonMacOs}">
+                      IsVisible="{localMarkup:IsNonMacOs}"
+                      testtk:TestProperties.TestId="MainMenu">
                     <MenuItem Header="File">
                         <MenuItem Header="Load File"
                                   Command="{Binding Path=LoadFileCommand}" />
@@ -86,8 +88,9 @@
                     </MenuItem>
                     
                     <MenuItem Header="View">
-                        <MenuItem Name="MnuZoomLevels" 
-                                  Header="{Binding FullApplicationZoomMenuItemDisplayString}">
+                        <MenuItem Name="MnuZoomLevels"
+                                  Header="{Binding FullApplicationZoomMenuItemDisplayString}"
+                                  testtk:TestProperties.TestId="MnuZoomLevels">
                         </MenuItem>
                     </MenuItem>
                 </Menu>
