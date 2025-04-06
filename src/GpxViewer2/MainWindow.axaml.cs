@@ -33,7 +33,7 @@ public partial class MainWindow : MvvmWindow
         this.MnuRecentlyOpened.Items.Clear();
         foreach (var actRecentlyOpenedEntry in recentlyOpenedEntries)
         {
-            var actDisplayName = Path.GetFileName(actRecentlyOpenedEntry.FullPath);
+            var actDisplayName = GetSourcePathDisplayNameForRecentlyOpened(actRecentlyOpenedEntry.FullPath);
             this.MnuRecentlyOpened.Items.Add(new MenuItem()
             {
                 Header = actDisplayName,
@@ -64,7 +64,7 @@ public partial class MainWindow : MvvmWindow
 
             foreach (var actRecentlyOpenedEntry in recentlyOpenedEntries)
             {
-                var actDisplayName = Path.GetFileName(actRecentlyOpenedEntry.FullPath);
+                var actDisplayName = GetSourcePathDisplayNameForRecentlyOpened(actRecentlyOpenedEntry.FullPath);
                 newChildNativeMenu.Items.Add(new NativeMenuItem()
                 {
                     Header = actDisplayName,
@@ -94,7 +94,7 @@ public partial class MainWindow : MvvmWindow
             }
         }
     }
-
+    
     private static NativeMenuTaggedItem? FindTaggedItemInNativeMenu(NativeMenu menu, string tag)
     {
         foreach (var actItem in menu.Items)
@@ -119,6 +119,17 @@ public partial class MainWindow : MvvmWindow
         return null;
     }
 
+    private string GetSourcePathDisplayNameForRecentlyOpened(string path)
+    {
+        var fullPath = path.AsSpan();
+        if ((fullPath.Length > 1) && (fullPath.EndsWith('/') || fullPath.EndsWith('\\')))
+        {
+            fullPath = fullPath[..^1];
+        }
+        
+        return Path.GetFileName(fullPath).ToString();
+    }
+    
     protected override void OnViewModelAttached(ViewModelAttachedEventArgs args)
     {
         base.OnViewModelAttached(args);
