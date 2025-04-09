@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
@@ -24,7 +24,7 @@
         <PackageReference Include="RolandK.AvaloniaExtensions.ExceptionHandling" Version="11.2.6" />
         <PackageReference Include="RolandK.Formats.Gpx" Version="1.0.1" />
         <PackageReference Include="RolandK.InProcessMessaging" Version="1.0.3" />
-        <PackageReference Include="Avalonia.Svg.Skia" Version="11.0.0.18" />
+        <PackageReference Include="Avalonia.Svg.Skia" Version="11.2.0.2" />
     </ItemGroup>
     
     <ItemGroup>
