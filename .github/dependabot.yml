@@ -9,7 +9,6 @@ updates:
       interval: "weekly"
       day: "wednesday"
     ignore:
-      - dependency-name: "Avalonia.Svg.Skia" 
       - dependency-name: "*"
         update-types:
           - "version-update:semver-major"
@@ -25,6 +24,7 @@ updates:
       interval: "weekly"
       day: "wednesday"
     ignore:
+      - dependency-name: "Avalonia.Svg.Skia"
       - dependency-name: "*"
         update-types:
           - "version-update:semver-major"
