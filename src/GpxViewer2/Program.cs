@@ -1,4 +1,5 @@
 ﻿using Avalonia;
+using AvaloniaUI.DiagnosticsSupport;
 using GpxViewer2.Model.GpxXmlExtensions;
 using GpxViewer2.Services;
 using GpxViewer2.Services.GpxFileStore;
@@ -57,6 +58,7 @@ public static class Program
             .UsePlatformDetect()
             .WithInterFont()
             .LogToTrace()
+            .WithDeveloperTools()
             .UseDependencyInjection(services =>
             {
                 // Services
