@@ -134,7 +134,8 @@ public partial class MainWindow : MvvmWindow
         switch (args.PropertyName)
         {
             case nameof(MainWindowViewModel.RecentlyOpenedEntries):
-            case nameof(MainWindowViewModel.SetFullApplicationZoomLevelCommand):    
+            case nameof(MainWindowViewModel.SetFullApplicationZoomLevelCommand):
+            case nameof(MainWindowViewModel.SelectedFullApplicationZoomLevel):    
                 this.UpdateMenuBars();
                 break;
         }
