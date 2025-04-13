@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using GpxViewer2.Controls;
 using GpxViewer2.Services.RecentlyOpened;
+using GpxViewer2.Util;
 using GpxViewer2.ViewServices;
 using RolandK.AvaloniaExtensions.Mvvm;
 using RolandK.AvaloniaExtensions.Mvvm.Controls;
@@ -33,7 +34,7 @@ public partial class MainWindow : MvvmWindow
         this.MnuRecentlyOpened.Items.Clear();
         foreach (var actRecentlyOpenedEntry in recentlyOpenedEntries)
         {
-            var actDisplayName = GetSourcePathDisplayNameForRecentlyOpened(actRecentlyOpenedEntry.FullPath);
+            var actDisplayName = FileOrDirectoryUtility.GetSourcePathDisplayNameForRecentlyOpened(actRecentlyOpenedEntry.FullPath);
             this.MnuRecentlyOpened.Items.Add(new MenuItem()
             {
                 Header = actDisplayName,
@@ -64,7 +65,7 @@ public partial class MainWindow : MvvmWindow
 
             foreach (var actRecentlyOpenedEntry in recentlyOpenedEntries)
             {
-                var actDisplayName = GetSourcePathDisplayNameForRecentlyOpened(actRecentlyOpenedEntry.FullPath);
+                var actDisplayName = FileOrDirectoryUtility.GetSourcePathDisplayNameForRecentlyOpened(actRecentlyOpenedEntry.FullPath);
                 newChildNativeMenu.Items.Add(new NativeMenuItem()
                 {
                     Header = actDisplayName,
@@ -117,17 +118,6 @@ public partial class MainWindow : MvvmWindow
         }
 
         return null;
-    }
-
-    private string GetSourcePathDisplayNameForRecentlyOpened(string path)
-    {
-        var fullPath = path.AsSpan();
-        if ((fullPath.Length > 1) && (fullPath.EndsWith('/') || fullPath.EndsWith('\\')))
-        {
-            fullPath = fullPath[..^1];
-        }
-        
-        return Path.GetFileName(fullPath).ToString();
     }
     
     protected override void OnViewModelAttached(ViewModelAttachedEventArgs args)
