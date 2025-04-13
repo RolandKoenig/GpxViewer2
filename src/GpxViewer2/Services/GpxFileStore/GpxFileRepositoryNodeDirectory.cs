@@ -1,4 +1,5 @@
 ﻿using GpxViewer2.Model;
+using GpxViewer2.Util;
 using GpxViewer2.ValueObjects;
 
 namespace GpxViewer2.Services.GpxFileStore
@@ -57,7 +58,7 @@ namespace GpxViewer2.Services.GpxFileStore
         /// <inheritdoc />
         protected override string GetNodeText()
         {
-            return Path.GetFileName(this.DirectoryPath.Path);
+            return FileOrDirectoryUtility.GetSourcePathDisplayNameForRecentlyOpened(this.DirectoryPath.Path);
         }
 
         /// <inheritdoc />
