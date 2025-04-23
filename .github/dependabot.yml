@@ -11,7 +11,7 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types:
-          - "version-update:semver-minor"
+          - "version-update:semver-major"
     groups:
       all-dependencies:
         patterns:
@@ -27,7 +27,7 @@ updates:
       - dependency-name: "Avalonia.Svg.Skia"
       - dependency-name: "*"
         update-types:
-          - "version-update:semver-minor"
+          - "version-update:semver-major"
     groups:
       all-dependencies:
         patterns:
