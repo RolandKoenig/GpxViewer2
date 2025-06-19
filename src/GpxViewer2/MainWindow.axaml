@@ -13,9 +13,11 @@
         x:DataType="local:MainWindowViewModel"
         d:DataContext="{x:Static local:MainWindowViewModel.EmptyViewModel}"
         ExtendClientAreaToDecorationsHint="True"
+        TransparencyLevelHint="AcrylicBlur"
         Title="{Binding Path=Title}"
         Icon="Assets/GPXviewer.ico"
-        DataContext="{ext:CreateUsingDependencyInjection Type={x:Type local:MainWindowViewModel}}">
+        DataContext="{ext:CreateUsingDependencyInjection Type={x:Type local:MainWindowViewModel}}"
+        Background="Transparent">
     <NativeMenu.Menu>
         <NativeMenu>
             <NativeMenuItem Header="File">
@@ -51,6 +53,11 @@
     </NativeMenu.Menu>
     
     <ext:MainWindowFrame FullAppZoom="{Binding SelectedFullApplicationZoomLevel.ZoomLevel}">
+        
+        <ext:MainWindowFrame.FullBackgroundArea>
+            <ExperimentalAcrylicBorder Material="{DynamicResource AppAcrylicMaterial}"/>
+        </ext:MainWindowFrame.FullBackgroundArea>
+        
         <ext:MainWindowFrame.CustomTitleArea>
             <StackPanel Orientation="Horizontal"
                         Margin="6">
