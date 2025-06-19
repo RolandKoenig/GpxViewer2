@@ -8,6 +8,10 @@
         <FluentTheme />
         <StyleInclude Source="avares://RolandK.AvaloniaExtensions/Themes/Fluent.axaml" />
         
+        <Style Selector="GridSplitter">
+            <Setter Property="Background" Value="#01AAAAAA" />
+        </Style>
+        
         <!-- Optimizes ScrollViewer sizing within TreeView 
              (expanded ScrollBar hides information behind it in default styling) -->
         <Style Selector="Track:horizontal > Thumb">
@@ -24,5 +28,29 @@
     <NativeMenu.Menu>
         <NativeMenu />
     </NativeMenu.Menu>
+    
+    <Application.Resources>
+        <ResourceDictionary>
+            <SolidColorBrush x:Key="MainWindowFrameTitleBackgroundBrush"
+                             Color="Transparent" />
+            
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key='Light'>
+                    <ExperimentalAcrylicMaterial x:Key="AppAcrylicMaterial"
+                                                 BackgroundSource="Digger"
+                                                 TintColor="White"
+                                                 TintOpacity="0.8"
+                                                 MaterialOpacity="0.6" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key='Dark'>
+                    <ExperimentalAcrylicMaterial x:Key="AppAcrylicMaterial"
+                                                 BackgroundSource="Digger"
+                                                 TintColor="Black"
+                                                 TintOpacity="0.8"
+                                                 MaterialOpacity="0.6" />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
     
 </Application>
