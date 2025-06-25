@@ -42,6 +42,19 @@
             <MenuItem Header="|"
                       IsHitTestVisible="False" />
             
+            <MenuItem ToolTip.Tip="Sort">
+                <MenuItem.Header>
+                    <i:Icon Value="fa-sort"/>
+                </MenuItem.Header>
+                <MenuItem Command="{Binding Path=SortByNameAscendingCommand}"
+                          Header="Name (Ascending)" />
+                <MenuItem Command="{Binding Path=SortByNameDescendingCommand}"
+                          Header="Name (Descending)" />
+            </MenuItem>
+            
+            <MenuItem Header="|"
+                      IsHitTestVisible="False" />
+            
             <MenuItem ToolTip.Tip="Save">
                 <MenuItem.Header>
                     <i:Icon Value="fa-save"/>

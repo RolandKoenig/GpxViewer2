@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.Input;
 using GpxViewer2.Controls;
@@ -95,6 +96,22 @@ public partial class RouteSelectionViewModel : OwnViewModelBase, INavigationTarg
         }
     }
 
+    [RelayCommand]
+    private void SortByNameAscending()
+    {
+        this.Nodes.SortObservableCollection(
+            x => x.NodeText,
+            ListSortDirection.Ascending);   
+    }
+    
+    [RelayCommand]
+    private void SortByNameDescending()
+    {
+        this.Nodes.SortObservableCollection(
+            x => x.NodeText,
+            ListSortDirection.Descending);   
+    }
+    
     [RelayCommand]
     private async Task LoadGpxFileAsync()
     {
