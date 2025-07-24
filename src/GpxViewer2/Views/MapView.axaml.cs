@@ -5,6 +5,7 @@ using GpxViewer2.Views.Maps;
 using Mapsui;
 using Mapsui.Animations;
 using Mapsui.Layers;
+using Mapsui.Manipulations;
 using Mapsui.Nts;
 using Mapsui.Tiling;
 using RolandK.AvaloniaExtensions.Mvvm.Controls;
@@ -52,14 +53,14 @@ public partial class MapView : MvvmUserControl, IMapsViewService
         this.InitializeComponent();
 
         _lineStringLayerForAll = new MemoryLayer();
-        _lineStringLayerForAll.IsMapInfoLayer = true;
+        // _lineStringLayerForAll.IsMapInfoLayer = true;
         _lineStringLayerForSelection = new MemoryLayer();
 
         this.CtrlMap.Map.Layers.Add(OpenStreetMap.CreateTileLayer());
         this.CtrlMap.Map.Layers.Add(_lineStringLayerForSelection);
         this.CtrlMap.Map.Layers.Add(_lineStringLayerForAll);
-        this.CtrlMap.UnSnapRotationDegrees = 30;
-        this.CtrlMap.ReSnapRotationDegrees = 5;
+        // this.CtrlMap.UnSnapRotationDegrees = 30;
+        // this.CtrlMap.ReSnapRotationDegrees = 5;
 
         this.CtrlMap.Map.Navigator.ViewportChanged += this.OnCtrlMap_Navigator_OnViewportChanged;
 
@@ -307,8 +308,8 @@ public partial class MapView : MvvmUserControl, IMapsViewService
             var mousePosition = e.GetCurrentPoint(this.CtrlMap);
 
             var clickInfo = this.CtrlMap.GetMapInfo(
-                new MPoint(mousePosition.Position.X, mousePosition.Position.Y),
-                3);
+                new ScreenPosition(mousePosition.Position.X, mousePosition.Position.Y),
+            [_lineStringLayerForAll]);
             if (clickInfo?.Feature is GeometryFeatureWithMetadata featureWithMetadata)
             {
                 _lastPressedTour = featureWithMetadata.Tour;
@@ -336,8 +337,8 @@ public partial class MapView : MvvmUserControl, IMapsViewService
         var mousePosition = e.GetCurrentPoint(this.CtrlMap);
 
         var mouseLocationInfo = this.CtrlMap.GetMapInfo(
-            new MPoint(mousePosition.Position.X, mousePosition.Position.Y),
-            3);
+            new ScreenPosition(mousePosition.Position.X, mousePosition.Position.Y),
+            [_lineStringLayerForAll]);
 
         this.CtrlMap.Cursor = mouseLocationInfo?.Feature != null
             ? new Cursor(StandardCursorType.Hand)
