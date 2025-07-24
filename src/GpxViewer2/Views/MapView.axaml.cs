@@ -53,14 +53,12 @@ public partial class MapView : MvvmUserControl, IMapsViewService
         this.InitializeComponent();
 
         _lineStringLayerForAll = new MemoryLayer();
-        // _lineStringLayerForAll.IsMapInfoLayer = true;
         _lineStringLayerForSelection = new MemoryLayer();
 
         this.CtrlMap.Map.Layers.Add(OpenStreetMap.CreateTileLayer());
         this.CtrlMap.Map.Layers.Add(_lineStringLayerForSelection);
         this.CtrlMap.Map.Layers.Add(_lineStringLayerForAll);
-        // this.CtrlMap.UnSnapRotationDegrees = 30;
-        // this.CtrlMap.ReSnapRotationDegrees = 5;
+        this.CtrlMap.Map.Navigator.RotationLock = true;
 
         this.CtrlMap.Map.Navigator.ViewportChanged += this.OnCtrlMap_Navigator_OnViewportChanged;
 
