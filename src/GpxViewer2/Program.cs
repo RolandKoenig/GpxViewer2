@@ -43,7 +43,10 @@ public static class Program
 
     // Avalonia configuration, don't remove; also used by visual designer.
     // ReSharper disable once MemberCanBePrivate.Global
-    public static AppBuilder BuildAvaloniaApp(params string[] args)
+    public static AppBuilder BuildAvaloniaApp()
+        => BuildAvaloniaApp([]);
+    
+    private static AppBuilder BuildAvaloniaApp(params string[] args)
     {
         IconProvider.Current
             .Register<FontAwesomeIconProvider>();

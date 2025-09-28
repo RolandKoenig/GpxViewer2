@@ -5,24 +5,42 @@
              xmlns:i="https://github.com/projektanker/icons.avalonia"
              xmlns:local="clr-namespace:GpxViewer2.Views"
              xmlns:localUtil="clr-namespace:GpxViewer2.Views.RouteSelection"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="450"
              x:Class="GpxViewer2.Views.RouteSelectionView"
              x:DataType="local:RouteSelectionViewModel"
              d:DataContext="{x:Static local:RouteSelectionViewModel.EmptyViewModel}">
+    
+    <!-- Color for 'IsTopRoute' star icon -->
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Light">
-                    <SolidColorBrush x:Key="StartBackgroundBrush" 
+                    <SolidColorBrush x:Key="StarBackgroundBrush" 
                                      Color="#DDDD00" /> 
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Dark">
-                    <SolidColorBrush x:Key="StartBackgroundBrush" 
+                    <SolidColorBrush x:Key="StarBackgroundBrush" 
                                      Color="DarkGoldenrod" /> 
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
+    
+    <!-- Optimizes ScrollViewer sizing within TreeView 
+         (expanded ScrollBar hides information behind it in default styling) -->
+    <UserControl.Styles>
+        <Style Selector=":is(Control).RouteDetailSelection">
+            <Style Selector="^ Track:horizontal > Thumb">
+                <Setter Property="Height" Value="8" />
+            </Style>
+            <Style Selector="^ Track:vertical > Thumb">
+                <Setter Property="Width" Value="8" />
+            </Style>
+            <Style Selector="^ ScrollContentPresenter">
+                <Setter Property="Margin" Value="0,0,10,10" />
+            </Style>
+        </Style>
+    </UserControl.Styles>
     
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top">
@@ -74,6 +92,7 @@
         </Menu>
         
         <TreeView x:Name="CtrlNodeTree"
+                  Classes="RouteDetailSelection"
                   SelectionMode="Multiple"
                   SelectionChanged="OnCtrlNodeTree_SelectionChanged"
                   ItemsSource="{Binding Path=Nodes}"
@@ -107,7 +126,7 @@
                         </i:Icon>
                         <i:Icon Grid.Column="0"
                                 Value="fa-star"
-                                Foreground="{DynamicResource StartBackgroundBrush}"
+                                Foreground="{DynamicResource StarBackgroundBrush}"
                                 IsVisible="{Binding Path=IsTopTourVisible}" 
                                 VerticalAlignment="Center">
                             <i:Icon.RenderTransform>

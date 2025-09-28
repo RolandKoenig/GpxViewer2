@@ -11,18 +11,6 @@
         <Style Selector="GridSplitter">
             <Setter Property="Background" Value="#01AAAAAA" />
         </Style>
-        
-        <!-- Optimizes ScrollViewer sizing within TreeView 
-             (expanded ScrollBar hides information behind it in default styling) -->
-        <Style Selector="Track:horizontal > Thumb">
-            <Setter Property="Height" Value="8" />
-        </Style>
-        <Style Selector="Track:vertical > Thumb">
-            <Setter Property="Width" Value="8" />
-        </Style>
-        <Style Selector="ScrollContentPresenter">
-            <Setter Property="Margin" Value="0,0,10,10" />
-        </Style>
     </Application.Styles>
 
     <NativeMenu.Menu>

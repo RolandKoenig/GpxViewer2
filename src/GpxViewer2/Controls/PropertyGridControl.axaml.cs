@@ -93,7 +93,9 @@ public partial class PropertyGridControl : UserControl
         var actCategory = string.Empty;
         var editControlFactory = this.EditControlFactory;
         if (editControlFactory == null)
-        { editControlFactory = new PropertyGridEditControlFactory(); }
+        {
+            editControlFactory = new PropertyGridEditControlFactory();
+        }
 
         foreach (var actProperty in _propertyGridVM.PropertyMetadata)
         {
@@ -127,6 +129,9 @@ public partial class PropertyGridControl : UserControl
                 actRowIndex++;
             }
 
+            // Create row
+            this.GridMain.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
+            
             // Create row header
             var ctrlTextContainer = new Border();
             var ctrlText = new TextBlock();
@@ -134,22 +139,25 @@ public partial class PropertyGridControl : UserControl
             ctrlText.VerticalAlignment = VerticalAlignment.Center;
             ctrlText.Margin = new Thickness(5d, 0, 0, 0);
             SetToolTip(ctrlText, actProperty.Metadata.Description);
-            ctrlTextContainer.Height = 35.0;
+            ctrlTextContainer.Height = double.NaN;
+            ctrlTextContainer.VerticalAlignment = VerticalAlignment.Stretch;
             ctrlTextContainer.Child = ctrlText;
             ctrlTextContainer.SetValue(Grid.RowProperty, actRowIndex);
             ctrlTextContainer.SetValue(Grid.ColumnProperty, 0);
-            ctrlTextContainer.VerticalAlignment = VerticalAlignment.Top;
             this.GridMain.Children.Add(ctrlTextContainer);
 
             // Create and configure row editor
+            var ctrlValueContainer = new Border();
             var ctrlValueEdit = editControlFactory.CreateControl(actProperty.Metadata, nameof(actProperty.ValueAccessor), allPropertiesMetadata);
-            this.GridMain.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
             ctrlValueEdit.VerticalAlignment = VerticalAlignment.Center;
-            ctrlValueEdit.SetValue(Grid.RowProperty, actRowIndex);
-            ctrlValueEdit.SetValue(Grid.ColumnProperty, 2);
             ctrlValueEdit.DataContext = actProperty;
+            ctrlValueContainer.Height = double.NaN;
+            ctrlValueContainer.VerticalAlignment = VerticalAlignment.Stretch;
+            ctrlValueContainer.Child = ctrlValueEdit;
+            ctrlValueContainer.SetValue(Grid.RowProperty, actRowIndex);
+            ctrlValueContainer.SetValue(Grid.ColumnProperty, 2);
             SetToolTip(ctrlValueEdit, actProperty.Metadata.Description);
-            this.GridMain.Children.Add(ctrlValueEdit);
+            this.GridMain.Children.Add(ctrlValueContainer);
 
             _firstValueRowEditor ??= ctrlValueEdit;
 

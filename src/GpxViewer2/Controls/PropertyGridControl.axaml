@@ -7,7 +7,7 @@
              d:DesignHeight="300"
              d:DesignWidth="400">
     <ScrollViewer>
-        <Grid x:Name="GridMain">
+        <Grid x:Name="GridMain" RowSpacing="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="3" />
