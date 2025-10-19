@@ -3,7 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ext="https://github.com/RolandK.AvaloniaExtensions"
-        xmlns:testtk="https://github.com/RolandKUiTestToolkit"
+        xmlns:t="https://github.com/RolandKUiTestToolkit"
         xmlns:c="local-application-common"
         xmlns:v="local-application-views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
@@ -75,7 +75,7 @@
             <DockPanel LastChildFill="True">
                 <Menu DockPanel.Dock="Top"
                       IsVisible="{c:IsNonMacOs}"
-                      testtk:TestProperties.TestId="MainMenu">
+                      t:TestProperties.TestId="MainMenu">
                     <MenuItem Header="File">
                         <MenuItem Header="Load File"
                                   Command="{Binding Path=LoadFileCommand}" />
@@ -95,7 +95,7 @@
                     <MenuItem Header="View">
                         <MenuItem Name="MnuZoomLevels"
                                   Header="{Binding FullApplicationZoomMenuItemDisplayString}"
-                                  testtk:TestProperties.TestId="MnuZoomLevels">
+                                  t:TestProperties.TestId="MnuZoomLevels">
                         </MenuItem>
                     </MenuItem>
                 </Menu>
