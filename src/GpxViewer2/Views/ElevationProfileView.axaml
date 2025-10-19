@@ -3,11 +3,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
-             xmlns:local="clr-namespace:GpxViewer2.Views"
+             xmlns:v="local-application-views"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="GpxViewer2.Views.ElevationProfileView"
-             x:DataType="local:ElevationProfileViewModel"
-             d:DataContext="{x:Static local:ElevationProfileViewModel.EmptyViewModel}">
+             x:DataType="v:ElevationProfileViewModel"
+             d:DataContext="{x:Static v:ElevationProfileViewModel.EmptyViewModel}">
     <lvc:CartesianChart x:Name="CtrlChart" 
                         Series="{Binding Series}"
                         ZoomMode="None">

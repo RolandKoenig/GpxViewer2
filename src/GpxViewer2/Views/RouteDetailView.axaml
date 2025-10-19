@@ -2,13 +2,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:GpxViewer2.Views"
-             xmlns:localControls="clr-namespace:GpxViewer2.Controls"
+             xmlns:v="local-application-views"
+             xmlns:c="local-application-common"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="GpxViewer2.Views.RouteDetailView"
-             d:DataContext="{x:Static local:RouteDetailViewModel.EmptyViewModel}"
-             x:DataType="local:RouteDetailViewModel">
+             d:DataContext="{x:Static v:RouteDetailViewModel.EmptyViewModel}"
+             x:DataType="v:RouteDetailViewModel">
     <Panel IsVisible="{Binding Path=ShowRouteDetail}">
-        <localControls:PropertyGridControl SelectedObject="{Binding Path=SelectedTour}" />
+        <c:PropertyGridControl SelectedObject="{Binding Path=SelectedTour}" />
     </Panel>
 </UserControl>
