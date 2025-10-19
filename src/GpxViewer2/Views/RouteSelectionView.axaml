@@ -3,12 +3,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:i="https://github.com/projektanker/icons.avalonia"
-             xmlns:local="clr-namespace:GpxViewer2.Views"
-             xmlns:localUtil="clr-namespace:GpxViewer2.Views.RouteSelection"
+             xmlns:v="local-application-views"
+             xmlns:c="local-application-common"
              mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="450"
              x:Class="GpxViewer2.Views.RouteSelectionView"
-             x:DataType="local:RouteSelectionViewModel"
-             d:DataContext="{x:Static local:RouteSelectionViewModel.EmptyViewModel}">
+             x:DataType="v:RouteSelectionViewModel"
+             d:DataContext="{x:Static v:RouteSelectionViewModel.EmptyViewModel}">
     
     <!-- Color for 'IsTopRoute' star icon -->
     <UserControl.Resources>
@@ -99,7 +99,7 @@
                   DoubleTapped="OnTreeView_DoubleTabbed"
                   Grid.IsSharedSizeScope="True">
             <TreeView.DataTemplates>
-                <TreeDataTemplate DataType="{x:Type localUtil:RouteSelectionNode}"
+                <TreeDataTemplate DataType="{x:Type v:RouteSelectionNode}"
                                   ItemsSource="{Binding Path=ChildNodes}">
                     <Grid ToolTip.Tip="{Binding Path=TooltipText}"
                           Background="#01000000">

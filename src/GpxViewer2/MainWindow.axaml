@@ -4,19 +4,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ext="https://github.com/RolandK.AvaloniaExtensions"
         xmlns:testtk="https://github.com/RolandKUiTestToolkit"
-        xmlns:local="clr-namespace:GpxViewer2"
-        xmlns:localMarkup="clr-namespace:GpxViewer2.MarkupExtensions"
-        xmlns:controls="clr-namespace:GpxViewer2.Controls"
-        xmlns:views="clr-namespace:GpxViewer2.Views"
+        xmlns:c="local-application-common"
+        xmlns:v="local-application-views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="GpxViewer2.MainWindow"
-        x:DataType="local:MainWindowViewModel"
-        d:DataContext="{x:Static local:MainWindowViewModel.EmptyViewModel}"
+        x:DataType="v:MainWindowViewModel"
+        d:DataContext="{x:Static v:MainWindowViewModel.EmptyViewModel}"
         ExtendClientAreaToDecorationsHint="True"
         TransparencyLevelHint="AcrylicBlur"
         Title="{Binding Path=Title}"
         Icon="Assets/GPXviewer.ico"
-        DataContext="{ext:CreateUsingDependencyInjection Type={x:Type local:MainWindowViewModel}}"
+        DataContext="{ext:CreateUsingDependencyInjection Type={x:Type v:MainWindowViewModel}}"
         Background="Transparent">
     <NativeMenu.Menu>
         <NativeMenu>
@@ -29,10 +27,10 @@
                     
                     <NativeMenuItemSeparator />
                     
-                    <controls:NativeMenuTaggedItem Tag="RecentlyOpened" 
-                                                   Header="Recently Opened">
+                    <c:NativeMenuTaggedItem Tag="RecentlyOpened" 
+                                            Header="Recently Opened">
                         <NativeMenu />
-                    </controls:NativeMenuTaggedItem>
+                    </c:NativeMenuTaggedItem>
                     
                     <NativeMenuItemSeparator />
                     
@@ -43,10 +41,10 @@
             
             <NativeMenuItem Header="View">
                 <NativeMenu>
-                    <controls:NativeMenuTaggedItem Tag="ZoomLevels"
-                                                   Header="{Binding FullApplicationZoomMenuItemDisplayString}">
+                    <c:NativeMenuTaggedItem Tag="ZoomLevels"
+                                            Header="{Binding FullApplicationZoomMenuItemDisplayString}">
                         <NativeMenu />
-                    </controls:NativeMenuTaggedItem>
+                    </c:NativeMenuTaggedItem>
                 </NativeMenu>
             </NativeMenuItem>
         </NativeMenu>
@@ -76,7 +74,7 @@
         <ext:MainWindowFrame.MainContentArea>
             <DockPanel LastChildFill="True">
                 <Menu DockPanel.Dock="Top"
-                      IsVisible="{localMarkup:IsNonMacOs}"
+                      IsVisible="{c:IsNonMacOs}"
                       testtk:TestProperties.TestId="MainMenu">
                     <MenuItem Header="File">
                         <MenuItem Header="Load File"
@@ -108,13 +106,13 @@
                     <!-- Left side ('Route selection' and 'Route detail') -->
                     <Grid Grid.Column="0" 
                           RowDefinitions="*,8,300">
-                        <controls:RegionControl Grid.Row="0"
-                                                ViewModelType="{x:Type views:RouteSelectionViewModel}" />
+                        <c:RegionControl Grid.Row="0"
+                                         ViewModelType="{x:Type v:RouteSelectionViewModel}" />
                         <GridSplitter Grid.Row="1"
                                       HorizontalAlignment="Stretch"
                                       VerticalAlignment="Stretch" />
-                        <controls:RegionControl Grid.Row="2" 
-                                                ViewModelType="{x:Type views:RouteDetailViewModel}" />
+                        <c:RegionControl Grid.Row="2" 
+                                         ViewModelType="{x:Type v:RouteDetailViewModel}" />
                     </Grid>
         
                     <GridSplitter Grid.Column="1"
@@ -124,13 +122,13 @@
                     <!-- Right side ('Map' and 'Elevation profile') -->
                     <Grid Grid.Column="2" 
                           RowDefinitions="*,8,200">
-                        <controls:RegionControl Grid.Row="0"
-                                                ViewModelType="{x:Type views:MapViewModel}" />
+                        <c:RegionControl Grid.Row="0"
+                                         ViewModelType="{x:Type v:MapViewModel}" />
                         <GridSplitter Grid.Row="1"
                                       HorizontalAlignment="Stretch"
                                       VerticalAlignment="Stretch" />
-                        <controls:RegionControl Grid.Row="2"
-                                                ViewModelType="{x:Type views:ElevationProfileViewModel}" />
+                        <c:RegionControl Grid.Row="2"
+                                         ViewModelType="{x:Type v:ElevationProfileViewModel}" />
                     </Grid>
                 </Grid> 
             </DockPanel>
