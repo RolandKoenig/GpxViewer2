@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.3.10" />
-        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.10" />
-        <PackageReference Include="Avalonia.Headless" Version="11.3.10" />
+        <PackageReference Include="Avalonia" Version="11.3.11" />
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.11" />
+        <PackageReference Include="Avalonia.Headless" Version="11.3.11" />
     </ItemGroup>
 </Project>
