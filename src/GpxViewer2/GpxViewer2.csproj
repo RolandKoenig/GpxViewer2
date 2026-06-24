@@ -8,13 +8,13 @@
     </PropertyGroup>
     
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.3.17" />
-        <PackageReference Include="Avalonia.Desktop" Version="11.3.17" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.17" />
-        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.17" />
-        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.3.17" />
+        <PackageReference Include="Avalonia" Version="11.3.18" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.18" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.18" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.18" />
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.3.18" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
-        <PackageReference Include="LiveChartsCore.SkiaSharpView.Avalonia" Version="2.0.4" />
+        <PackageReference Include="LiveChartsCore.SkiaSharpView.Avalonia" Version="2.0.5" />
         <PackageReference Include="Mapsui.Avalonia" Version="5.1.0" />
         <PackageReference Include="NSubstitute" Version="5.3.0" />
         <PackageReference Include="Projektanker.Icons.Avalonia" Version="9.6.2" />
@@ -40,7 +40,7 @@
     </ItemGroup>
     
     <ItemGroup>
-      <PackageReference Include="Avalonia.Headless" Version="11.3.17" />
+      <PackageReference Include="Avalonia.Headless" Version="11.3.18" />
       <ProjectReference Include="..\GpxViewer2.ExceptionViewer\GpxViewer2.ExceptionViewer.csproj" />
       <ProjectReference Include="..\GpxViewer2.UiTestToolkit\GpxViewer2.UiTestToolkit.csproj" />
     </ItemGroup>
